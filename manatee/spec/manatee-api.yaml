@@ -141,7 +141,6 @@ components:
           type: integer
         interviewTime:
           type: string
-          format: date-time
         interviewerName:
           type: string
         interviewType:
