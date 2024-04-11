@@ -22,12 +22,18 @@ public class InterviewConfig extends StateMachineConfigurerAdapter<InterviewStat
         transitions.withExternal()
                 .source(InterviewState.SCHEDULE)
                 .target(InterviewState.FINISHED)
-                .event(InterviewEvent.FINISHED)
+                .event(InterviewEvent.FINISH)
 
                 .and()
                 .withExternal()
                 .source(InterviewState.SCHEDULE)
                 .target(InterviewState.CANCELLED)
-                .event(InterviewEvent.CANCELLED);
+                .event(InterviewEvent.CANCEL)
+
+                .and()
+                .withExternal()
+                .source(InterviewState.SCHEDULE)
+                .target(InterviewState.SCHEDULED)
+                .event(InterviewEvent.SCHEDULE);
     }
 }

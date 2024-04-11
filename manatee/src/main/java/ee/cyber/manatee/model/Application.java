@@ -3,13 +3,7 @@ package ee.cyber.manatee.model;
 
 import java.time.OffsetDateTime;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -41,4 +35,8 @@ public class Application {
 
     @NotNull
     private OffsetDateTime updatedOn;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "interview_id")
+    private Interview interview;
 }

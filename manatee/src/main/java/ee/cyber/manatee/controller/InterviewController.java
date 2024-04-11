@@ -1,5 +1,6 @@
 package ee.cyber.manatee.controller;
 
+import ee.cyber.manatee.api.InterviewApi;
 import ee.cyber.manatee.dto.InterviewDto;
 import ee.cyber.manatee.mapper.InterviewMapper;
 import ee.cyber.manatee.model.Interview;
@@ -17,7 +18,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class InterviewController {
+public class InterviewController implements InterviewApi {
     private final InterviewService interviewService;
     private final InterviewMapper interviewMapper;
 

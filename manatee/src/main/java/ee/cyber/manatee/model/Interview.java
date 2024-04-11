@@ -1,5 +1,6 @@
 package ee.cyber.manatee.model;
 
+import ee.cyber.manatee.statemachine.InterviewState;
 import ee.cyber.manatee.statemachine.InterviewType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -23,14 +24,14 @@ public class Interview {
     private String interviewerName;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private InterviewType interviewType;
-
-    @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     private Candidate candidate;
 
     @NotNull
     private String interviewTime;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private InterviewType interviewType;
 
 }

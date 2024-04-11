@@ -105,6 +105,8 @@ components:
         updatedOn:
           type: string
           format: date-time
+        interview:
+          $ref: '#/components/schemas/Interview'
 
     Candidate:
       type: object
@@ -135,7 +137,7 @@ components:
         - interviewTime
         - interviewerName
         - interviewType
-        - candidate
+        - applicationID
       properties:
         id:
           type: integer

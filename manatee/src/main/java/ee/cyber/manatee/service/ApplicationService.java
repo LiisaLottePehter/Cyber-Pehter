@@ -4,6 +4,7 @@ package ee.cyber.manatee.service;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+import ee.cyber.manatee.model.Interview;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,16 @@ public class ApplicationService {
 
     private final ApplicationRepository applicationRepository;
     private final ApplicationStateMachine applicationStateMachine;
+    private final InterviewService interviewService;
 
     public List<Application> getApplications() {
-        return applicationRepository.findAll();
+        List<Application> applications = applicationRepository.findAll();
+        applications.forEach(application -> {
+            if (application.getInterview() != null) {
+                application.setInterview(interviewService.getInterview(application.getInterview().getId()));
+            }
+        });
+        return applications;
     }
 
 
