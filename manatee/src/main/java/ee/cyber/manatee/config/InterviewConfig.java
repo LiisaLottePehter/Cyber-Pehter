@@ -2,12 +2,17 @@ package ee.cyber.manatee.config;
 
 import ee.cyber.manatee.statemachine.InterviewEvent;
 import ee.cyber.manatee.statemachine.InterviewState;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.statemachine.config.EnableStateMachineFactory;
 import org.springframework.statemachine.config.StateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 
 import java.util.EnumSet;
 
+@Configuration
 public class InterviewConfig extends StateMachineConfigurerAdapter<InterviewState, InterviewEvent> {
 
     public void configure(StateMachineStateConfigurer<InterviewState, InterviewEvent> states) throws Exception {

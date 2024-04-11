@@ -27,7 +27,7 @@ public class InterviewController implements InterviewApi {
         return ResponseEntity.ok(interviewMapper.entityToDtoList(interviews));
     }
 
-
+    @Override
     public ResponseEntity<InterviewDto> scheduleInterview(InterviewDto interviewDto) {
         val draftInterview = interviewMapper.dtoToEntity(interviewDto);
         val interview = interviewService.scheduleInterview(draftInterview);
