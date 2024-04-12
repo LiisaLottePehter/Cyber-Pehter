@@ -154,6 +154,13 @@ components:
             - final
         candidate:
           $ref: '#/components/schemas/Candidate'
+        interviewState:
+          type: string
+          enum:
+            - Schedule
+            - Scheduled
+            - Finished
+            - Cancelled
 
   parameters:
     ApplicationId:

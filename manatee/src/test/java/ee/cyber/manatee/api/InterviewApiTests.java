@@ -27,6 +27,7 @@ public class InterviewApiTests {
                 .interviewerName("Karl")
                 .interviewTime("24.04.2024 12.30.00")
                 .interviewType(InterviewDto.InterviewTypeEnum.BEHAVIOURAL)
+                .interviewState(InterviewDto.InterviewStateEnum.SCHEDULED)
                 .build();
 
         val response = interviewApi.scheduleInterview(draftInterview);
@@ -39,6 +40,7 @@ public class InterviewApiTests {
         assertNotNull(interview.getInterviewerName());
         assertNotNull(interview.getInterviewTime());
         assertNotNull(interview.getInterviewType());
+        assertNotNull(interview.getInterviewState());
 
         assertEquals(draftInterview.getCandidate().getFirstName(), interview.getCandidate().getFirstName());
         assertEquals(draftInterview.getCandidate().getLastName(), interview.getCandidate().getLastName());

@@ -2,6 +2,8 @@ package ee.cyber.manatee.service;
 
 import ee.cyber.manatee.model.Interview;
 import ee.cyber.manatee.repository.InterviewRepository;
+import ee.cyber.manatee.statemachine.InterviewState;
+import ee.cyber.manatee.statemachine.InterviewStateMachine;
 import ee.cyber.manatee.statemachine.InterviewType;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -17,15 +19,19 @@ public class InterviewService {
 
     private final InterviewRepository interviewRepository;
 
+    private final InterviewStateMachine interviewStateMachine;
+
     public List<Interview> getInterviews() {
         return interviewRepository.findAll();
     }
 
     public Interview scheduleInterview(Interview interview) {
         interview.setInterviewerName("Karl");
-        interview.setId(null);
+        interview.setId(1);
         interview.setInterviewTime("24.04.2024 12.30.00");
         interview.setInterviewType(InterviewType.BEHAVIOURAL);
+        interviewStateMachine.scheduleInterview(interview);
+        interview.setInterviewState(InterviewState.SCHEDULED);
         return interviewRepository.save(interview);
     }
     public Interview getInterview(Integer id) {

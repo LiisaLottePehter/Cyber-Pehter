@@ -5,6 +5,7 @@ import ee.cyber.manatee.model.Candidate;
 import ee.cyber.manatee.model.Interview;
 import ee.cyber.manatee.repository.ApplicationRepository;
 import ee.cyber.manatee.statemachine.ApplicationState;
+import ee.cyber.manatee.statemachine.InterviewState;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,9 +28,9 @@ public class Database {
             Candidate candidate2 = new Candidate(2, "Karl", "Karu");
             Candidate candidate3 = new Candidate(3, "Karoliine", "Kohver");
             Candidate candidate4 = new Candidate(4, "Markus", "Maasikas");
-            Interview interview1 = new Interview(1, "Karl", candidate1, "24.03.2024 12.30.00", INFORMAL);
-            Interview interview2 = new Interview(2, "Maria", candidate3, "24.03.2024 14.30.00", BEHAVIOURAL);
-            Interview interview3 = new Interview(3, "Karl", candidate4, "24.03.2024 13.30.00", BEHAVIOURAL);
+            Interview interview1 = new Interview(1, "Karl", candidate1, "24.03.2024 12.30.00", INFORMAL, InterviewState.SCHEDULE);
+            Interview interview2 = new Interview(2, "Maria", candidate3, "24.03.2024 14.30.00", BEHAVIOURAL, InterviewState.SCHEDULED);
+            Interview interview3 = new Interview(3, "Karl", candidate4, "24.03.2024 13.30.00", BEHAVIOURAL, InterviewState.SCHEDULED);
 
             Application application = new Application(1, ApplicationState.INTERVIEW, candidate1, OffsetDateTime.now(), interview1);
             Application application2 = new Application(2, ApplicationState.REJECTED, candidate2, OffsetDateTime.now(), null);

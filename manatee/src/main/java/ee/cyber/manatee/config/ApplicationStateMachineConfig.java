@@ -21,7 +21,7 @@ import ee.cyber.manatee.statemachine.ApplicationState;
 
 @Slf4j
 @Configuration
-@EnableStateMachineFactory
+@EnableStateMachineFactory(name = "factory1")
 public class ApplicationStateMachineConfig
         extends StateMachineConfigurerAdapter<ApplicationState, ApplicationEvent> {
 

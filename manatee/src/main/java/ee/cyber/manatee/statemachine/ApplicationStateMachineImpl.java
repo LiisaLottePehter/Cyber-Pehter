@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.config.StateMachineFactory;
@@ -23,6 +25,8 @@ public class ApplicationStateMachineImpl implements ApplicationStateMachine {
     public static final String APPLICATION_ID_HEADER = "application_id";
 
     private final ApplicationRepository applicationRepository;
+    @Autowired
+    @Qualifier("factory1")
     private final StateMachineFactory<ApplicationState, ApplicationEvent> stateMachineFactory;
     private final ApplicationStateInterceptor applicationStateInterceptor;
 

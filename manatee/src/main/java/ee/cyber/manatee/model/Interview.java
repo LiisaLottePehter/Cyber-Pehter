@@ -34,4 +34,7 @@ public class Interview {
     @Enumerated(EnumType.STRING)
     private InterviewType interviewType;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private InterviewState interviewState;
 }

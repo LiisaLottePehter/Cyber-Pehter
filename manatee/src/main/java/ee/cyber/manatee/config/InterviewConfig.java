@@ -13,6 +13,7 @@ import org.springframework.statemachine.config.builders.StateMachineTransitionCo
 import java.util.EnumSet;
 
 @Configuration
+@EnableStateMachineFactory(name = "factory2")
 public class InterviewConfig extends StateMachineConfigurerAdapter<InterviewState, InterviewEvent> {
 
     public void configure(StateMachineStateConfigurer<InterviewState, InterviewEvent> states) throws Exception {
